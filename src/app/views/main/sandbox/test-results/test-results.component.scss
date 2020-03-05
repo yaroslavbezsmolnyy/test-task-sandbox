@@ -1,0 +1,82 @@
+@import "variables";
+@import "~@angular/material/theming";
+
+.test-results {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__icon {
+    margin-right: 0.25em;
+  }
+
+  &__statistics {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__statistics-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    margin-bottom: 8px;
+    overflow-y: auto;
+
+    .mat-expansion-panel {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .mat-expansion-panel-header-title {
+      flex-grow: initial;
+    }
+
+    .mat-expansion-panel-header-description {
+      align-items: center;
+    }
+  }
+
+  &__statistics-item,
+  &__content {
+    background-color: $color-dark-grey;
+    border-radius: 5px;
+    padding: 8px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__btn {
+    &.mat-button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &__message {
+    white-space: pre-wrap;
+    padding-left: 1em;
+    font-family: $monospace-font;
+  }
+
+  .passed {
+    color: $color-green;
+  }
+
+  .failed {
+    color: $color-red;
+  }
+}

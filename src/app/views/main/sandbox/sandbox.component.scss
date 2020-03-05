@@ -1,0 +1,11 @@
+@import "~@angular/material/theming";
+
+.sandbox {
+  min-height: calc(100vh - 1em);
+  margin: 0.5em;
+
+  &__element {
+    height: 100%;
+    width: 100%;
+  }
+}

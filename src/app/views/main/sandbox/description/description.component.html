@@ -1,0 +1,36 @@
+<mat-card class="description">
+  <h1>Test task for a candidate on position JavaScript Developer</h1>
+  <p>
+    Let's imagine that you have a mini-app - a form for adding a new medicine. There is a form mockup below (page 3).
+    The form is just for understanding,
+    <b>it isn't necessary to create a markup for it.</b>
+  </p>
+  <p>
+    The main goal is - to write a function for processing data from the form.
+    <b>It should calculate and return the end date of a medicine intake (! Date object !)</b>
+  </p>
+  <p>
+    <b>Note:</b>
+    It’ll be enough to write a function, which will pass all test cases for success. Also, we’ll pay particular
+    attention to check the readability of the code and skills of decomposition.
+    <b>We expect from you just a javascript file with implemented function and time spent on it.</b>
+    <b>Function’s arguments and data examples:</b>
+  </p>
+  <code>
+    {{ EXAMPLE_PARAMS }}
+  </code>
+  <p>
+    <b>Test task includes 2 levels of complexity: base and additional (*)</b>
+  </p>
+  <p>
+    <b>Base level:</b>
+    You can ignore the time in array intakes. For example, even if a function runs at 8 pm, we still calculate this day
+    as a full day of intake.
+  </p>
+  <p>
+    <b>Additional *:</b>
+    To implement function taking into account time in the array intakes. For example, if we run a function at 1 pm, a
+    person will miss morning intake ({{ '{' }}time: "9:15", pills: 1}) he/she will have 1 pill in stocks remain, which
+    he’ll intake in his last day of intake.
+  </p>
+</mat-card>

@@ -1,0 +1,24 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+
+  @media screen and (max-width: $desktop-s) {
+    font-size: 8px;
+  }
+}
+
+body {
+  background-color: map_get($map: $mat-dark-theme-background, $key: background);
+  font-family: $main-font;
+  font-size: $font-size-base;
+  min-width: 320px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}

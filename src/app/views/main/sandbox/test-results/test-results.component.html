@@ -1,0 +1,55 @@
+<mat-card class="test-results">
+  <ul class="test-results__statistics">
+    <li class="test-results__statistics-item passed" matTooltip="Passed test suites">
+      <mat-icon class="test-results__icon">check_circle_outline</mat-icon>
+      <span>{{ results?.numPassedTestSuites || 0 }}</span>
+    </li>
+    <li class="test-results__statistics-item passed" matTooltip="Passed tests">
+      <mat-icon class="test-results__icon">done</mat-icon>
+      <span>{{ results?.numPassedTests || 0 }}</span>
+    </li>
+    <li class="test-results__statistics-item failed" matTooltip="Failed test suites">
+      <mat-icon class="test-results__icon">highlight_off</mat-icon>
+      <span>{{ results?.numFailedTestSuites || 0 }}</span>
+    </li>
+    <li class="test-results__statistics-item failed" matTooltip="Failed tests">
+      <mat-icon class="test-results__icon">clear</mat-icon>
+      <span>{{ results?.numFailedTests || 0 }}</span>
+    </li>
+  </ul>
+  <mat-card-content class="test-results__content">
+    <div *ngFor="let testSuit of results?.testResults">
+      <h3>{{ testSuit.displayName }}</h3>
+
+      <mat-accordion>
+        <mat-expansion-panel
+          *ngFor="let testResult of testSuit?.testResults"
+          [disabled]="testResult.status === TestStatus.passed"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-description>
+              {{ testResult.fullName }}
+            </mat-panel-description>
+
+            <mat-panel-title [ngSwitch]="testResult.status" [ngClass]="testResult.status">
+              <mat-icon *ngSwitchCase="TestStatus.passed">done</mat-icon>
+              <mat-icon *ngSwitchCase="TestStatus.failed">clear</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div
+            class="test-results__message"
+            *ngFor="let message of testResult.failureMessages"
+            [ngClass]="testResult.status"
+          >
+            {{ message }}
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="test-results__actions">
+    <button mat-button class="test-results__btn" (click)="click()">Run Tests</button>
+    <button mat-flat-button class="test-results__btn" color="primary">Submit</button>
+  </mat-card-actions>
+</mat-card>

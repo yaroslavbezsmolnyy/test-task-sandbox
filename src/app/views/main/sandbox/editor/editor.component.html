@@ -1,0 +1,9 @@
+<mat-card class="editor">
+  <ngx-monaco-editor
+    class="editor__inner"
+    [options]="editorOptions"
+    [(ngModel)]="value"
+    (onInit)="onInit($event)"
+    (ngModelChange)="onValueChanges($event)"
+  ></ngx-monaco-editor>
+</mat-card>
